@@ -1,7 +1,7 @@
 # [Download here!](https://github.com/knah/VRCLinuxAssistant/releases/latest)
 
 VRChat Melon Assistant is a Linux mod installer for VRChat. It is a port of [VRCMelonAssistant](https://github.com/knah/VRCMelonAssistant) 
-made with [Avalonia](https://github.com/Avalonia/Avalonia). It also automatically installs [MelonLoader]("https://github.com/lavagang/MelonLoader")
+made with [Avalonia](https://github.com/Avalonia/Avalonia). It also automatically installs [MelonLoader](https://github.com/lavagang/MelonLoader)
 
 It uses mods published in [VRChat Modding Group Discord](https://discord.gg/rCqKSvR).  
 It's a (very stripped down) port of a (very stipped down) fork of [Assistant's Mod Assistant](https://github.com/Assistant/ModAssistant), a mod manager for Beat Saber.  
