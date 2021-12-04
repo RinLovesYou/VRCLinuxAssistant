@@ -47,7 +47,7 @@ Some Planned features are:
   Please visit the [VRChat Modding Group](https://discord.gg/rCqKSvR) `#help-and-support` channel. Check the pinned messages or ask for help and see if you can work out things out.
 
 ## Disclaimer
-There are no native ports of MelonLoader to Linux. Should this change in the future, I will update the assistant to differentiate between Linux and Windows builds of VRChat, to download the correct version of Melonloader.
+There are no native ports of MelonLoader OR VRChat to Linux. Should this change in the future, I will update the assistant to differentiate between Linux and Windows builds of VRChat, to download the correct version of Melonloader.
 
 PLEASE NOTE:
 Most, if not all of the actual logic behind this was made by [Knah](https://github.com/knah).
