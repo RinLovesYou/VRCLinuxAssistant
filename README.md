@@ -30,6 +30,7 @@ Then, simply check off the mods that you wish to install or update and click the
 Since this is a port to Avalonia, not everything will be ported out of the box.
 
 Some Planned features are:
+* Mod Info Page
 * Support for BSMA Themes
 * Headpats and Hugs
 
