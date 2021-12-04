@@ -1,24 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Microsoft.VisualBasic.CompilerServices;
 using Newtonsoft.Json;
 using VRCLinuxAssistant.Classes;
 using VRCLinuxAssistant.Libs;
-using AssemblyExtensions = System.Reflection.AssemblyExtensions;
 
 namespace VRCLinuxAssistant.Pages
 {

@@ -58,6 +58,7 @@
                       Grid.Column="0"
                       SelectionMode="Extended"
                       CanUserResizeColumns="True"
+                      IsReadOnly="True"
                       Initialized="ModGrid_OnInitialized">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding ModName}"></DataGridTextColumn>

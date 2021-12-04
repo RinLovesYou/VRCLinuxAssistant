@@ -7,6 +7,8 @@ using Avalonia.Markup.Xaml;
 using VRCLinuxAssistant.Classes;
 using VRCLinuxAssistant.Pages;
 
+using static VRCLinuxAssistant.Program;
+
 #pragma warning disable 8618
 #pragma warning disable 8601
 
@@ -69,6 +71,21 @@ namespace VRCLinuxAssistant
             OpenModsPage();
         }
 
+        private object PageFromIndex(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    return IntroPage;
+                case 1:
+                    return IntroPage;
+                case 2:
+                    return AboutPage;
+                default:
+                    return IntroPage;
+            }
+        }
+
         private void VersionText_OnInitialized(object? sender, EventArgs e)
         {
             var text = sender as TextBlock;
@@ -78,17 +95,22 @@ namespace VRCLinuxAssistant
         private void Main_OnInitialized(object? sender, EventArgs e)
         {
             Main = sender as UserControl;
-            Main.Content = IntroPage;
+            var index = PageFromIndex(VLAConfig.LastPage);
+            Main.Content = index;
         }
 
         private void AboutButton_OnClick(object? sender, RoutedEventArgs e)
         {
             Main.Content = AboutPage;
+            VLAConfig.LastPage = 2;
+            VLAUtils.SaveConfig();
         }
 
         private void IntroButton_OnClick(object? sender, RoutedEventArgs e)
         {
             Main.Content = IntroPage;
+            VLAConfig.LastPage = 0;
+            VLAUtils.SaveConfig();
         }
 
         private void MainTextBlock_OnInitialized(object? sender, EventArgs e)
@@ -99,11 +121,17 @@ namespace VRCLinuxAssistant
         private void ModsButton_OnInitialized(object? sender, EventArgs e)
         {
             ModsButton = sender as Button;
+            if (VLAConfig.TOS)
+            {
+                ModsButton.IsEnabled = true;
+            }
         }
 
         private void ModsButton_OnClick(object? sender, RoutedEventArgs e)
         {
             ShowModsPage();
+            VLAConfig.LastPage = 1;
+            VLAUtils.SaveConfig();
         }
 
         private void InstallButton_OnInitialized(object? sender, EventArgs e)
@@ -121,7 +149,10 @@ namespace VRCLinuxAssistant
             Instance = sender as MainWindow;
             Task.Run(() =>
             {
-                App.VRChatInstallDirectory = VLAUtils.GetInstallDir();
+                var res = VLAUtils.GetInstallDir();
+                App.VRChatInstallDirectory = res;
+                Program.VLAConfig.VRCPath = res;
+                VLAUtils.SaveConfig();
             });
         }
 

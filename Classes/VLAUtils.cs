@@ -1,14 +1,20 @@
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Dialogs;
+using Avalonia.Threading;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Newtonsoft.Json;
 
 namespace VRCLinuxAssistant.Classes
 {
     public class VLAUtils
     {
+        public static string ExePath = Process.GetCurrentProcess().MainModule.FileName;
         public class Constants
         {
             public const string VRChatAppId = "438100";
@@ -27,7 +33,7 @@ namespace VRCLinuxAssistant.Classes
         
         public static string GetInstallDir()
         {
-            string InstallDir = "/home/rin/.local/share/Steam/steamapps/common/VRChat/";
+            string InstallDir = Program.VLAConfig.VRCPath;
             if (!string.IsNullOrEmpty(InstallDir)
                 && Directory.Exists(InstallDir)
                 && Directory.Exists(Path.Combine(InstallDir, "VRChat_Data", "Plugins"))
@@ -40,9 +46,12 @@ namespace VRCLinuxAssistant.Classes
             var result = dialog.ShowAsync(MainWindow.Instance);
             while (!result.IsCompleted) { }
 
-            if (!result.IsCompletedSuccessfully)
+            if (result.IsCanceled || result.IsFaulted)
             {
-                MainWindow.MainTextBlock.Text = "There was an error getting your VRChat Folder. Please try again.";
+                Dispatcher.UIThread.Post(() =>
+                {
+                    MainWindow.MainTextBlock.Text = "There was an error getting your VRChat Folder. Please try again."; 
+                });
             }
             InstallDir = result.Result;
             if (!string.IsNullOrEmpty(InstallDir)
@@ -52,7 +61,35 @@ namespace VRCLinuxAssistant.Classes
             {
                 return InstallDir;
             }
+            Dispatcher.UIThread.Post(() =>
+            {
+                MainWindow.MainTextBlock.Text = "There was an error getting your VRChat Folder. Please try again."; 
+            });
             return null;
+        }
+        
+        public static async Task Download(string link, string output)
+        {
+            var client = new HttpClient();
+            var resp = await client.GetAsync(link);
+            using (var stream = await resp.Content.ReadAsStreamAsync())
+            using (var fs = new FileStream(output, FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                await stream.CopyToAsync(fs);
+            }
+        }
+
+        public static void SaveConfig()
+        {
+            try
+            {
+                File.WriteAllText("vrcla.config.json", JsonConvert.SerializeObject(Program.VLAConfig));
+            }
+            catch (Exception e)
+            {
+                MainWindow.MainTextBlock.Text = "There was an error saving your config. Settings may not persist.";
+                
+            }
         }
         
         public static string GetVersion()

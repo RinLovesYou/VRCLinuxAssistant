@@ -1,3 +1,4 @@
+using System.Reflection;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -9,6 +10,7 @@ namespace VRCLinuxAssistant
     {
         public static string VRChatInstallDirectory;
         public static string VRChatInstallType;
+        public static string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public static App Instance { get; set; }
         
         public override void Initialize()
