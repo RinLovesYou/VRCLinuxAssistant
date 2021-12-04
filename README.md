@@ -9,6 +9,8 @@ It's a (very stripped down) port of a (very stipped down) fork of [Assistant's M
 **Modifying the VRChat client is not allowed by VRChat Terms of Service and can lead to your account being banned.** Mods available via this installer are manually checked to minimize the chance of that happening, but the risk is always there.  
 VRChat Melon Assistant is not affiliated with and/or endorsed by VRChat Inc.
 
+Please refer to the [Wiki](https://github.com/RinLovesYou/wiki) for what to do before using MelonLoader
+
 * [Linux Disclaimer](#Disclaimer)
 * [Features](#Features)
 * [Usage](#Usage)
