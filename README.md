@@ -17,7 +17,7 @@ VRChat Melon Assistant is not affiliated with and/or endorsed by VRChat Inc.
 
 ## Features
 
-VRChat Melon Assistant boasts a rich feature set, some of which include:
+VRChat Linux Assistant boasts a rich feature set, some of which include:
 * Installed mod detection
 * Mod uninstallation
 * Broken mod move-aside (temporarily uninstalls them until a fix is available)
