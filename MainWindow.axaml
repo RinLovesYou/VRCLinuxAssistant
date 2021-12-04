@@ -1,0 +1,183 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+        x:Class="VRCLinuxAssistant.MainWindow"
+        Icon="/Resources/icon.ico"
+        Title="VRCLinuxAssistant" Opened="TopLevel_OnOpened">
+    <Grid>
+        <Rectangle Fill="#0F0F0F" />
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button Classes="Default"
+                        Name="IntroButton"
+                        Grid.Row="0"
+                        Height="60"
+                        Width="60"
+                        Margin="0, 0, 10, 5"
+                        Click="IntroButton_OnClick">
+                    <StackPanel Margin="0, 6, 0, 0">
+                        <Image Height="30"
+                               VerticalAlignment="Bottom"
+                               Source="{DynamicResource info_circleDrawingImage}" />
+                        <Viewbox Stretch="Uniform" Height="16">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Padding="2,0,2,0"
+                                Text="Intro" />
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+                
+                <Button Classes="Default"
+                        Name="ModsButton"
+                        Grid.Row="1"
+                        Height="60"
+                        Width="60"
+                        IsEnabled="False"
+                        Initialized="ModsButton_OnInitialized"
+                        Click="ModsButton_OnClick"
+                        Margin="0, 0, 10, 5">
+                    <StackPanel Margin="0, 6, 0, 0">
+                        <Image Height="30"
+                               VerticalAlignment="Bottom"
+                               Source="{DynamicResource microchipDrawingImage}" />
+                        <Viewbox Stretch="Uniform" Height="16">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Padding="2,0,2,0"
+                                Text="Mods" />
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+                
+                <Button Classes="Default"
+                        Name="AboutButton"
+                        Grid.Row="2"
+                        Height="60"
+                        Width="60"
+                        Margin="0, 0, 10, 5"
+                        Click="AboutButton_OnClick">
+                    <StackPanel Margin="0, 6, 0, 0">
+                        <Image Height="30"
+                               VerticalAlignment="Bottom"
+                               Source="{DynamicResource heartDrawingImage}" />
+                        <Viewbox Stretch="Uniform" Height="16">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Padding="2,0,2,0"
+                                Text="About" />
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+                
+                <Button Classes="Default"
+                        Name="OptionsButton"
+                        Grid.Row="3"
+                        Height="60"
+                        Width="60"
+                        Margin="0, 0, 10, 5">
+                    <StackPanel Margin="0, 6, 0, 0">
+                        <Image Height="30"
+                               VerticalAlignment="Bottom"
+                               Source="{DynamicResource cogDrawingImage}" />
+                        <Viewbox Stretch="Uniform" Height="16">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Padding="2,0,2,0"
+                                Text="Options" />
+                        </Viewbox>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" Text="Version" />
+                <TextBlock Name="VersionText" HorizontalAlignment="Center" Initialized="VersionText_OnInitialized" />
+            </StackPanel>
+            <UserControl Grid.Row="0" Name="Main" Grid.Column="1" Initialized="Main_OnInitialized"/>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Border
+                    Height="40"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="{DynamicResource BottomStatusBarOutline}"
+                    BorderThickness="1">
+                    <TextBlock
+                        Name="MainTextBlock"
+                        Padding="5"
+                        Initialized="MainTextBlock_OnInitialized"
+                        Background="{DynamicResource BottomStatusBarBackground}"
+                        FontSize="20" />
+                </Border>
+                
+                <Button
+                    Name="InfoButton"
+                    Grid.Column="1"
+                    Height="40"
+                    MinWidth="115"
+                    Margin="10, 10, 0, 0"
+                    Padding="20, 0, 20, 0"
+                    HorizontalAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    IsEnabled="False"
+                    Initialized="InfoButton_OnInitialized">
+                    <StackPanel>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Text="Mod Info" />
+                    </StackPanel>
+                </Button>
+                
+                <Button
+                    Name="InstallButton"
+                    Grid.Column="2"
+                    Height="40"
+                    MinWidth="115"
+                    Margin="10, 10, 0, 0"
+                    Padding="20, 0, 20, 0"
+                    HorizontalAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    IsEnabled="False"
+                    Click="InstallButton_OnClick"
+                    Initialized="InstallButton_OnInitialized">
+                    <StackPanel>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Text="Install" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Text="or Update" />
+                    </StackPanel>
+                </Button>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

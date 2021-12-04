@@ -1,0 +1,235 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="VRCLinuxAssistant.Pages.About">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center"
+          RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto">
+
+        <TextBlock
+            Margin="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            Text="About VRChat Linux Assistant" />
+        <TextBlock
+            Grid.Row="1"
+            Margin="0,5"
+            FontSize="16"
+            Text="VRChat Linux Assistant is a port of VRChat Melon Assistant, which is a fork of BeatSaber Mod Assistant"
+            TextWrapping="Wrap" />
+
+
+        <TextBlock
+            Grid.Row="6"
+            Margin="0,5,5,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            Visit https://github.com/Assistant/ModAssistant and https://github.com/Knah/VRCMelonAssistant to show them some appreciation for their hard work and/or throw some money at them!
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="7"
+            Margin="0,10,5,5"
+            FontSize="20"
+            Text="Special Thanks ♥" />
+        <StackPanel Grid.Row="8">
+            <StackPanel
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    Assistant - https://github.com/Assistant/
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Creating the original
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Mod Assistant
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://ko-fi.com/N4N8JX7B
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    Umbranox - https://umbranox.carrd.co/
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Inspiration
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Creating the original Mod Manager
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://www.patreon.com/scoresaber
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    lolPants - https://www.jackbaron.com/
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Inspiration
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Creating ModSaber
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    The first Mod repository
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://www.paypal.me/jackbarondev"
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    Caeden117 - https://www.github.com/Caeden117
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Theme Support
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://ko-fi.com/Caeden117
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    Interz - https://twitter.com/moarinterz
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Logos and icon design
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://streamlabs.com/lnterz/tip
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Margin="10" Orientation="Vertical">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold">
+                    Megalon2D - https://github.com/megalon
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    BSMG Theme
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Lots of fixes
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16">
+                    Donate: https://ko-fi.com/megalon
+                </TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="9"
+            Margin="5"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                x:Name="PatButton"
+                Height="30"
+                MinWidth="80"
+                VerticalContentAlignment="Center"
+                Margin="0,0,5,0"
+                Padding="20,0,20,0"
+                x:FieldModifier="public"
+                Content="Headpats" />
+            <Button
+                x:Name="HugButton"
+                Height="30"
+                MinWidth="80"
+                VerticalContentAlignment="Center"
+                Margin="5,0,0,0"
+                Padding="20,0,20,0"
+                x:FieldModifier="public"
+                Content="Hugs" />
+        </StackPanel>
+    </Grid>
+</UserControl>

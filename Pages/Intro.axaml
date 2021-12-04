@@ -1,0 +1,139 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:unicode="clr-namespace:Avalonia.Media.TextFormatting.Unicode;assembly=Avalonia.Visuals"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+             x:Class="VRCLinuxAssistant.Pages.Intro">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Height="400"
+          RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto">
+
+        <TextBlock
+            Margin="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="48"
+            Text="Welcome to VRChat Linux Assistant" />
+        <TextBlock
+            Grid.Row="1"
+            Margin="0"
+            FontSize="28"
+            FontWeight="Bold"
+            Text="Please read this page entirely and carefully" />
+        <TextBlock
+            Grid.Row="2"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            By using this program attest to have read and agree to the following terms:
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="3"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            VRChat EXPLICITLY forbids modding the game client in their Terms of Service. This means:
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="4"
+            Margin="15,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            Modding the client CAN lead to bans. Mods available via this installer are manually checked to minimize the chance of that happening, but THE RISK IS ALWAYS THERE.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="5"
+            Margin="15,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            Mods WILL BREAK every update. This is normal, and NOT VRChat's fault.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="6"
+            Margin="15,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            Mods WILL cause bugs and performance issues. This is NOT VRChat's fault.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="7"
+            Margin="15,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            Mods are made for FREE by people in their FREE TIME Please be patient and understanding.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="8"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            DO NOT complain to VRChat Team because mods broke. This is NOT VRChat's fault. They are not trying to kill mods. Probably.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="9"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            If you want to report an issue with the game to VRChat Team, MAKE SURE THE ISSUE IS NOT CAUSED BY MODS To do so, remove all mods and/or MelonLoader and check if the issue still happens.
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="10"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap">
+            "If I keep seeing people complain to the devs because mods broke, I will personally kill mods with a rusty spoon" - Knah, 2021
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="11"
+            Margin="0,5"
+            FontSize="16"
+            TextWrapping="Wrap"
+            Text="Feel free to join the VRChat Modding group">
+        </TextBlock>
+
+        <StackPanel
+            Grid.Row="12"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Name="Agree"
+                Height="35"
+                Margin="0,0,10,0"
+                Padding="20,0,20,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Agree_OnClick">
+            <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Text="Agree" />
+            </Button>
+            <Button
+                Name="Disagree"
+                Height="35"
+                Margin="10,0,0,0"
+                Padding="20,0,20,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Disagree_OnClick">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    Text="Disagree" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="VRCLinuxAssistant.App">
+    <Application.Styles>
+        <FluentTheme Mode="Dark"/>
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+        <StyleInclude Source="/Styles/Button.axaml"></StyleInclude>
+    </Application.Styles>
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="StandardIcon">#AEAEAE</Color>
+            <Color x:Key="StandardPrimary">#2E2E2E</Color>
+            <Color x:Key="StandardContent">#E0E0E0</Color>
+            <Color x:Key="StandardBorder">#696969</Color>
+            <SolidColorBrush x:Key="TextColor" Color="{DynamicResource ResourceKey=StandardContent}" />
+            <SolidColorBrush x:Key="BottomStatusBarBackground" Color="{DynamicResource ResourceKey=StandardPrimary}" />
+            <SolidColorBrush x:Key="BottomStatusBarOutline" Color="{DynamicResource ResourceKey=StandardBorder}" />
+            
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceInclude Source="/Resources/Icons.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

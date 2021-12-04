@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>Resources/icon.ico</ApplicationIcon>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <FileVersion>0.0.1</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Resources\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.11-rc.1" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.11-rc.1" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.11-rc.1" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11-rc.1" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11-rc.1" />
+    <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.4.8" />
+    <PackageReference Include="mameolan.Avalonia.ExtendedToolkit" Version="1.0.0-CI-20211126-062008" />
+    <PackageReference Include="MessageBox.Avalonia" Version="1.6.0" />
+    <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+   </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Themes\LinuxDark.axaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\icon.ico" />
+    <EmbeddedResource Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+</Project>
