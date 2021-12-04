@@ -60,5 +60,8 @@ https://github.com/twitter/twemoji
 Original Mod Assistant is made by Assistant and used under the terms of MIT License.  
 https://github.com/Assistant/ModAssistant
 
+Original Fork of the Assistant by Knah.
+https://github.com/knah
+
 semver by Max Hauser  
 https://github.com/maxhauser/semver
