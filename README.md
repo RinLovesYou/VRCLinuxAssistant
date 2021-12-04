@@ -1,6 +1,6 @@
 # [Download here!](https://github.com/knah/VRCLinuxAssistant/releases/latest)
 
-VRChat Melon Assistant is a Linux mod installer for VRChat. It is a port of [VRCMelonAssistant](https://github.com/knah/VRCMelonAssistant) 
+VRChat Linux Assistant is a Linux mod installer for VRChat. It is a port of [VRCMelonAssistant](https://github.com/knah/VRCMelonAssistant) 
 made with [Avalonia](https://github.com/Avalonia/Avalonia). It also automatically installs [MelonLoader](https://github.com/lavagang/MelonLoader)
 
 It uses mods published in [VRChat Modding Group Discord](https://discord.gg/rCqKSvR).  
@@ -25,8 +25,9 @@ VRChat Linux Assistant boasts a rich feature set, some of which include:
 * Broken mod move-aside (temporarily uninstalls them until a fix is available)
 
 ## Usage
-Download the newest build from the release section and run it. This application auto-updates when launched, there is no need to download a new release each time.  
-Then, simply check off the mods that you wish to install or update and click the <kbd>Install or Update</kbd> button. Likewise, click the <kbd>Uninstall</kbd> button to remove any mods.
+Download the newest build from the release section and run it.
+
+Then, simply select the mods that you wish to install or update and click the <kbd>Install or Update</kbd> button. Likewise, click the <kbd>Uninstall</kbd> button to remove any mods.
 
 ## Todo
 Since this is a port to Avalonia, not everything will be ported out of the box.
