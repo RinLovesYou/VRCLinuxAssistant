@@ -7,7 +7,7 @@ It uses mods published in [VRChat Modding Group Discord](https://discord.gg/rCqK
 It's a (very stripped down) port of a (very stipped down) fork of [Assistant's Mod Assistant](https://github.com/Assistant/ModAssistant), a mod manager for Beat Saber.  
 
 **Modifying the VRChat client is not allowed by VRChat Terms of Service and can lead to your account being banned.** Mods available via this installer are manually checked to minimize the chance of that happening, but the risk is always there.  
-VRChat Melon Assistant is not affiliated with and/or endorsed by VRChat Inc.
+VRChat Melon Linux is not affiliated with and/or endorsed by VRChat Inc.
 
 Please refer to the [Wiki](https://github.com/RinLovesYou/VRCLinuxAssistant/wiki/Prerequisites-for-installing-MelonLoader-under-Wine-Proton) for what to do before using MelonLoader
 
