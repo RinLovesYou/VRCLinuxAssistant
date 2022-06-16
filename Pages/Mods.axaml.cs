@@ -19,6 +19,7 @@ namespace VRCLinuxAssistant.Pages
     {
         
         private static readonly ModListItem.CategoryInfo BrokenCategory = new("Broken", "These mods were broken by a game update. They will be temporarily removed and restored once they are updated for the current game version");
+        private static readonly ModListItem.CategoryInfo RetiredCategory = new("Retired", "These mods are either no longer needed due to VRChat updates or are no longer being maintained");
         private static readonly ModListItem.CategoryInfo UncategorizedCategory = new("Uncategorized", "Mods without a category assigned");
         private static readonly ModListItem.CategoryInfo UnknownCategory = new("Unknown/Unverified", "Mods not coming from VRCMG. Potentially dangerous.");
 
@@ -58,7 +59,7 @@ namespace VRCLinuxAssistant.Pages
             {
                 Mod mod = modListItem.ModInfo;
                 // Ignore mods that are newer than installed version or up-to-date
-                if (mod.ListItem.GetVersionComparison >= 0 && mod.installedInBrokenDir == mod.versions[0].IsBroken) continue;
+                if (mod.ListItem.GetVersionComparison >= 0 && mod.installedInBrokenDir == mod.versions[0].IsBroken && mod.installedInRetiredDir == mod.versions[0].IsRetired) continue;
 
 
                     MainWindow.MainTextBlock.Text = $"Installing {mod.versions[0].name}...";
@@ -164,14 +165,14 @@ namespace VRCLinuxAssistant.Pages
                 IsSelected = preSelected,
                 IsEnabled = true,
                 ModName = latestVersion.name,
-                ModVersion = latestVersion.modversion,
+                ModVersion = latestVersion.modVersion,
                 ModAuthor = HardcodedCategories.FixupAuthor(latestVersion.author),
                 ModDescription = latestVersion.description.Replace("\r\n", " ").Replace("\n", " "),
                 ModInfo = mod,
                 IsInstalled = mod.installedFilePath != null,
                 InstalledVersion = mod.installedVersion,
                 InstalledModInfo = mod,
-                Category = categoryOverride ?? (latestVersion.IsBroken ? BrokenCategory : GetCategory(mod))
+                Category = categoryOverride ?? (latestVersion.IsBroken ? BrokenCategory : (latestVersion.IsRetired ? RetiredCategory : GetCategory(mod)))
             };
 
             foreach (var promo in Promotions.ActivePromotions)
@@ -194,10 +195,12 @@ namespace VRCLinuxAssistant.Pages
 
             await Task.Run(() =>
             {
-                CheckInstallDir("Plugins", false);
-                CheckInstallDir("Mods", false);
-                CheckInstallDir("Plugins/Broken", true);
-                CheckInstallDir("Mods/Broken", true);
+                CheckInstallDir("Plugins");
+                CheckInstallDir("Mods");
+                CheckInstallDir("Plugins/Broken", isBrokenDir: true);
+                CheckInstallDir("Mods/Broken", isBrokenDir: true);
+                CheckInstallDir("Plugins/Retired", isRetiredDir: true);
+                CheckInstallDir("Mods/Retired", isRetiredDir: true);
             });
         }
         
@@ -248,7 +251,7 @@ namespace VRCLinuxAssistant.Pages
             }
         }
         
-        private void CheckInstallDir(string directory, bool isBrokenDir)
+        private void CheckInstallDir(string directory, bool isBrokenDir = false, bool isRetiredDir = false)
         {
             if (!Directory.Exists(Path.Combine(App.VRChatInstallDirectory, directory)))
             {
@@ -273,6 +276,7 @@ namespace VRCLinuxAssistant.Pages
                         mod.installedFilePath = file;
                         mod.installedVersion = modInfo.ModVersion;
                         mod.installedInBrokenDir = isBrokenDir;
+                        mod.installedInRetiredDir = isRetiredDir;
                         break;
                     }
 
@@ -283,12 +287,13 @@ namespace VRCLinuxAssistant.Pages
                             installedFilePath = file,
                             installedVersion = modInfo.ModVersion,
                             installedInBrokenDir = isBrokenDir,
+                            installedInRetiredDir = isRetiredDir,
                             versions = new []
                             {
                                 new Mod.ModVersion()
                                 {
                                     name = modInfo.ModName,
-                                    modversion = modInfo.ModVersion,
+                                    modVersion = modInfo.ModVersion,
                                     author = modInfo.ModAuthor,
                                     description = ""
                                 }
