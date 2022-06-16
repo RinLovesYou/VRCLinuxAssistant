@@ -75,7 +75,7 @@ namespace VRCLinuxAssistant.Classes
         
         internal static async Task<Stream> DownloadFileToMemory(string link)
         {
-            var client = new HttpClient();
+            var client = Http.HttpClient;
             using var resp = await client.GetAsync(link);
             var newStream = new MemoryStream();
             await resp.Content.CopyToAsync(newStream);
@@ -85,7 +85,7 @@ namespace VRCLinuxAssistant.Classes
         
         public static async Task InstallMod(Mod mod)
         {
-            string downloadLink = mod.versions[0].downloadlink;
+            string downloadLink = mod.versions[0].downloadLink;
 
             if (string.IsNullOrEmpty(downloadLink))
             {
@@ -96,21 +96,26 @@ namespace VRCLinuxAssistant.Classes
             if (mod.installedFilePath != null)
                 File.Delete(mod.installedFilePath);
 
-            var modUri = new Uri(downloadLink);
-            var targetFilePath = Path.Combine(App.VRChatInstallDirectory, mod.versions[0].IsPlugin ? "Plugins" : "Mods",
-                mod.versions[0].IsBroken ? "Broken" : "", modUri.Segments.Last());
+            string targetFilePath = "";
 
-            Directory.CreateDirectory(Path.GetDirectoryName(targetFilePath));
-
-            using (Stream stream = await DownloadFileToMemory(downloadLink))
+            using (var resp = await Http.HttpClient.GetAsync(downloadLink))
             {
+                var stream = new MemoryStream();
+                await resp.Content.CopyToAsync(stream);
+                stream.Position = 0;
+
+                targetFilePath = Path.Combine(App.VRChatInstallDirectory, mod.versions[0].IsPlugin ? "Plugins" : "Mods",
+                    mod.versions[0].IsBroken ? "Broken" : (mod.versions[0].IsRetired ? "Retired" : ""), resp.RequestMessage.RequestUri.Segments.Last());
+
+                Directory.CreateDirectory(Path.GetDirectoryName(targetFilePath));
+
                 using var targetFile = File.OpenWrite(targetFilePath);
                 await stream.CopyToAsync(targetFile);
             }
 
             mod.ListItem.IsInstalled = true;
             mod.installedFilePath = targetFilePath;
-            mod.ListItem.InstalledVersion = mod.versions[0].modversion;
+            mod.ListItem.InstalledVersion = mod.versions[0].modVersion;
             mod.ListItem.InstalledModInfo = mod;
         }
     }
